@@ -1,15 +1,15 @@
 /**
- * @description: 身份证号脱敏显示
+ * @desc 身份证脱敏显示
  * @param {String} code
- * @returns {String} 格式化后的身份证号
+ * @returns {String} 格式化后的身份证
  */
 function formatCode(code) {
   return `${code.substr(0,1)}*************${code.substr(17,18)}`;
 }
 
 /**
- * @description: 身份证号检验
- * @param {String} sId 身份证号
+ * @desc 身份证检验
+ * @param {String} sId 身份证
  * @returns {Boolean}
  */
 function isCardID (sId) {
@@ -205,7 +205,7 @@ class StorageFn {
 }
 
 
-/*将数字转换为大写金额*/
+/* 将数字转换为大写金额 */
 function changeToChinese (Num) {
   //判断如果传递进来的不是字符的话转换为字符
   if(typeof Num == "number") {
@@ -357,8 +357,7 @@ function changeToChinese (Num) {
   return newchar;
 }
 
-
-/*将阿拉伯数字翻译成中文的大写数字*/
+/* 将阿拉伯数字翻译成中文的大写数字 */
 function numberToChinese (num) {
   const AA = new Array("零", "一", "二", "三", "四", "五", "六", "七", "八", "九", "十");
   const BB = new Array("", "十", "百", "仟", "萬", "億", "点", "");
@@ -400,3 +399,66 @@ function numberToChinese (num) {
       re = re.replace("一", "");
   return re;
 }
+
+/* 判断是否为Ios */
+function isIos() {
+  const ua = navigator.userAgent;
+  const isIos = (ua.indexOf('iPhone') != -1) || (ua.indexOf('iPad') != -1);
+  return isIos
+}
+
+/* 判断是否为PC端 */
+function isPC () {
+  const userAgentInfo = navigator.userAgent;
+  const Agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
+  let flag = true;
+  for (let v = 0; v < Agents.length; v++) {
+      if (userAgentInfo.indexOf(Agents[v]) > 0) {
+          flag = false;
+          break;
+      }
+  }
+  return flag;
+}
+
+/**
+ * @desc 格式化时间兼容Ios
+ * @param  val 时间
+ * @param  format 格式
+ * @return {String} 字符串
+ *
+ * @example formatTime('2020/11/04 00:00:00', 'yyyy-MM-dd') // -> 2020-11-04
+ * @example formatTime('2020/11/04 00:00:00', 'yyyy-MM-dd hh:mm:ss') // -> 2020-11-04 00:00:00
+ */
+function formatTime(val, format) {
+  if (val) {
+    /**
+        * @instructions 如果不是时间戳格式，且含有字符 '-' 则将 '-' 替换成 '/' && 删除小数点及后面的数字
+        * @reason 将 '-' 替换成 '/' && 删除小数点及后面的数字 的原因是safari浏览器仅支持 '/' 隔开的时间格式
+        */
+    if (val.toString().indexOf('-') > 0) {
+      val = val.replace(/T/g, ' ').replace(/\.[\d]{3}Z/, '').replace(/(-)/g, '/'); // 将 '-' 替换成 '/'
+    }
+    const REGEX = /(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})/;
+    let date = new Date(val);
+    date.setHours(date.getHours() + 8);
+    const [yy, MM, dd, hh, mm, ss] = date.toISOString().match(REGEX);
+    if (format) {
+      return format
+        .replace('yyyy', yy)
+        .replace('yy', yy.slice(2))
+        .replace('MM', MM)
+        .replace('dd', dd)
+        .replace('hh', hh)
+        .replace('mm', mm)
+        .replace('ss', ss);
+    } else {
+      return [yy, MM, dd].join('-') + ' ' + [hh, mm, ss].join(':');
+    }
+  } else {
+    return '--';
+  }
+};
+
+
+
