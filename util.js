@@ -101,7 +101,7 @@ function throttle (func, wait, type) {
   };
 }
 
- /* web存储 */
+ /* web存储封装 */
 class StorageFn {
   constructor () {
       this.ls = window.localStorage;
@@ -480,7 +480,7 @@ function getUrlAllParams (url) {
 
 /* 深拷贝 */
 const deepClone = (target, cache = new Map()) => {
-  const isObject = (obj) => typeof obj === 'object' && obj !== null
+  const isObject = obj => typeof obj === 'object' && obj !== null
 
   if (isObject(target)) {
     // 解决循环引用
@@ -506,6 +506,20 @@ const deepClone = (target, cache = new Map()) => {
     return target
   }
 }
+
+/**
+ * @desc 千分位格式化数字
+ * @param  number 金额
+ * @return {String} 字符串
+ *
+ * @example formatPrice(123456789.3343) -> 123,456,789.3343
+ */
+const formatPrice = number => {
+  number = '' + number
+  const [ integer, decimal = '' ] = number.split('.')
+  return integer.replace(/\B(?=(\d{3})+$)/g, ',') + (decimal ? '.' + decimal : '')
+}
+
 
 
 
