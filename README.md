@@ -15,5 +15,6 @@
 - 判断是否为 PC 端
 - 格式化时间(兼容 ios)
 - 获取 url 参数转换为 json 对象
-- 深拷贝
-- 千分位格式化数字
+- [深拷贝](https://www.baidu.com/)
+- [千分位格式化数字](https://www.google.com/)
+- [HTML 标签反转义](https://github.com/xingpengchao/Utils/blob/main/util.js)
