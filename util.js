@@ -494,6 +494,16 @@ const isPhoneNum = str => {
 }
 
 /**
+ * @desc   判断是否为邮箱地址
+ * @param  {String}  str
+ * @return {Boolean}
+ */
+
+const isEmail = str => {
+  return /\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/.test(str)
+}
+
+/**
  * @desc   生成随机数
  * @param  {number} min
  * @param  {number} max
@@ -502,7 +512,6 @@ const isPhoneNum = str => {
 const getRandom = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min)
 };
-
 
 /**
  * @desc   数组随机乱序

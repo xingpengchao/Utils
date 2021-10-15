@@ -19,5 +19,6 @@
 - [千分位格式化数字](https://www.google.com/)
 - [HTML 标签反转义](https://github.com/xingpengchao/Utils/blob/main/util.js)
 - [判断是否为手机号](https://github.com/xingpengchao/Utils/blob/main/util.js)
+- [判断是否为邮箱地址](https://github.com/xingpengchao/Utils/blob/main/util.js)
 - [生成随机数](https://github.com/xingpengchao/Utils/blob/main/util.js)
 - [数组随机乱序](https://github.com/xingpengchao/Utils/blob/main/util.js)
