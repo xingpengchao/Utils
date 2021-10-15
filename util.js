@@ -483,3 +483,22 @@ const escape2Html = str => {
     return arrEntities[t];
   });
 }
+
+/**
+ * @desc   判断是否为手机号
+ * @param  {String|Number} str
+ * @return {Boolean}
+ */
+const isPhoneNum = str => {
+  return /^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/.test(str)
+}
+
+/**
+ * @desc   生成随机数
+ * @param  {number} min
+ * @param  {number} max
+ * @return {number} res
+ */
+const getRandom = (min, max) => {
+  return Math.floor(Math.random() * (max - min + 1) + min)
+};
