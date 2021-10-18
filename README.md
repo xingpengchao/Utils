@@ -12,9 +12,9 @@
 - Web 存储封装
 - 数字转大写金额
 - [判断是否为 ios](https://github.com/xingpengchao/Utils/blob/main/util.js)
-- 判断是否为 PC 端
-- 格式化时间(兼容 ios)
-- 获取 url 参数转换为 json 对象
+- [判断是否为 PC 端](https://github.com/xingpengchao/Utils/blob/main/util.js)
+- [格式化时间(兼容 ios)](https://github.com/xingpengchao/Utils/blob/main/util.js)
+- [获取 url 参数转换为 json 对象](https://github.com/xingpengchao/Utils/blob/main/util.js)
 - [深拷贝](https://www.baidu.com/)
 - [千分位格式化数字](https://www.google.com/)
 - [HTML 标签反转义](https://github.com/xingpengchao/Utils/blob/main/util.js)
