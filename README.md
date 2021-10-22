@@ -9,7 +9,7 @@
 ### 目录展示
 
 - [身份证脱敏显示](https://github.com/xingpengchao/Utils/blob/main/utils/身份证脱敏显示.js)
-- 身份证校验
+- [身份证校验](https://github.com/xingpengchao/Utils/blob/main/utils/身份证检验.js)
 - 国人姓名校验
 - 防抖
 - 节流
