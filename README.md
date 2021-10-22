@@ -2,9 +2,13 @@
 
 ## 前端日常开发工具类整理
 
+### 工具类集合
+
+- 查看全部： [传送门](https://github.com/xingpengchao/Utils/blob/main/util.js)
+
 ### 目录展示
 
-- 身份证脱敏显示
+- [身份证脱敏显示](https://github.com/xingpengchao/Utils/blob/main/utils/身份证脱敏显示.js)
 - 身份证校验
 - 国人姓名校验
 - 防抖
